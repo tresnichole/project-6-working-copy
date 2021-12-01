@@ -12,7 +12,7 @@ public class DictionaryService {
     public Entry getWord(String word) {
 
         Entry entry = new Entry(word, DictionaryReference.getDictionary()
-                .get(word));
+                                                         .get(word));
 
         return entry;
     }
