@@ -59,6 +59,7 @@ public class DictionaryReference {
     }
 
     public static Map<String, String> getDictionary() {
+
         return DictionaryReference.dictionary;
     }
 }
