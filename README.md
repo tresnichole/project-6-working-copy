@@ -46,7 +46,7 @@ The following are instructions on how to complete project 6 for a grade as well 
 1. Add a method to the `DictionaryService` that returns all words that end with a certain value.  To do this:
 - Copy the `getWordsStartingWith` method
 - Change the new method name to `getWordsEndingWith`
-- Change the method call inside your new method from .startsWith to .endsWith
+- Change the method call inside your new method from `.startsWith` to `.endsWith`
 
 2. Add a method to the `DictionaryController` that calls your new service method and returns the words to the calling process.  To do this:
 - Copy the `getWordsStartingWith` method
