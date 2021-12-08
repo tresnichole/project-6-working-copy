@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class AggregatorController {
 
@@ -19,5 +21,11 @@ public class AggregatorController {
     public Entry getDefinitionFor(@PathVariable String word) {
 
         return service.getDefinitionFor(word);
+    }
+
+    @GetMapping("/getWordsStartingWith/{chars}")
+    public List<Entry> getWordsStartingWith(@PathVariable String chars) {
+
+        return service.getWordsStartingWith(chars);
     }
 }
