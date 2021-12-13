@@ -32,4 +32,29 @@ public class DictionaryService {
                                   .map(entry -> new Entry(entry.getKey(), entry.getValue()))
                                   .collect(Collectors.toList());
     }
+
+    public List<Entry> getWordsThatContainConsecutiveDoubleletters() {
+
+        return DictionaryReference.getDictionary()
+                .entrySet()
+                .stream()
+                .filter( entry -> {
+
+                    String word = entry.getKey();
+                    boolean duplicateConsecutiveLetters = false;
+                    for(int x = 1; x < word.length(); x++) {
+                        if(word.charAt(x) == word.charAt(x - 1)) {
+                            duplicateConsecutiveLetters = true;
+                            break;
+                        }
+                    }
+                    return duplicateConsecutiveLetters;
+
+                })
+                .sorted(Map.Entry.comparingByKey(Comparator.naturalOrder()))
+                .map(entry -> new Entry(entry.getKey(), entry.getValue()))
+                .collect(Collectors.toList());
+
+    }
+
 }
