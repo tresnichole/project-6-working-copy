@@ -17,20 +17,20 @@ public class DictionaryService {
     public Entry getWord(String word) {
 
         Entry entry = new Entry(word, DictionaryReference.getDictionary()
-                                                         .get(word));
+                .get(word));
         return entry;
     }
 
     public List<Entry> getWordsStartingWith(String value) {
 
         return DictionaryReference.getDictionary()
-                                  .entrySet()
-                                  .stream()
-                                  .filter(entry -> entry.getKey()
-                                                        .contains(value))
-                                  .sorted(Map.Entry.comparingByKey(Comparator.naturalOrder()))
-                                  .map(entry -> new Entry(entry.getKey(), entry.getValue()))
-                                  .collect(Collectors.toList());
+                .entrySet()
+                .stream()
+                .filter(entry -> entry.getKey()
+                        .startsWith(value))
+                .sorted(Map.Entry.comparingByKey(Comparator.naturalOrder()))
+                .map(entry -> new Entry(entry.getKey(), entry.getValue()))
+                .collect(Collectors.toList());
     }
 
     public List<Entry> getWordsThatContainConsecutiveDoubleletters() {
@@ -56,5 +56,17 @@ public class DictionaryService {
                 .collect(Collectors.toList());
 
     }
+    public List<Entry> getWordsEndingWith(String value) {
+
+        return DictionaryReference.getDictionary()
+                .entrySet()
+                .stream()
+                .filter(entry -> entry.getKey()
+                        .endsWith(value))
+                .sorted(Map.Entry.comparingByKey(Comparator.naturalOrder()))
+                .map(entry -> new Entry(entry.getKey(), entry.getValue()))
+                .collect(Collectors.toList());
+    }
+
 
 }

@@ -28,4 +28,16 @@ public class AggregatorController {
 
         return service.getWordsStartingWith(chars);
     }
+
+     @getAllPalindromes("/getDefinitionFor/{word}")
+        public List<Entry> getAllPalindromes(@PathVariable String word) {
+
+            return service.getAllPalindromes(word);
+        }
+
+         @GetMapping("/getAllPalindromes/{word}")
+           public List<Entry> getAllPalindromes(@PathVariable String word) {
+
+                return service.getAllPalindromes(word);
+            }
 }
